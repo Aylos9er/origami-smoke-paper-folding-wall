@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Origami Smoke Paper Folding Wall</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Origami Smoke Paper Folding Wall</h1>
+  <div id="control-panel">
+    <div class="control-group">
+      <label for="rows">Rows: <span id="rows-value">12</span></label>
+      <input type="range" id="rows" min="4" max="24" value="12">
+    </div>
+    <div class="control-group">
+      <label for="cols">Columns: <span id="cols-value">16</span></label>
+      <input type="range" id="cols" min="4" max="32" value="16">
+    </div>
+    <div class="control-group">
+      <label for="smoke-toggle">Smoke Effect</label>
+      <input type="checkbox" id="smoke-toggle" checked>
+    </div>
+    <div class="control-group">
+      <button id="refresh">Refresh</button>
+      <button id="download">Download</button>
+    </div>
+  </div>
+  <canvas id="canvas" resize></canvas>
+  <div class="smoke-layer"></div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
