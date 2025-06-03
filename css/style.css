@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  background-color: #1a1a1a;
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffb87c;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  user-select: none;
+}
+
+#canvas {
+  width: 90vw;
+  height: 80vh;
+  border: 1px solid #ffb87c;
+  border-radius: 12px;
+  background: #121212;
+  box-shadow: 0 0 20px rgba(255, 184, 124, 0.5);
+  cursor: grab;
+  touch-action: none;
+}
+
+.smoke-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  animation: smokeDrift 15s linear infinite;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+#control-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(18, 18, 18, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ffb87c;
+  box-shadow: 0 0 15px rgba(255, 184, 124, 0.3);
+  z-index: 1000;
+}
+
+.control-group {
+  margin-bottom: 15px;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="range"] {
+  width: 100%;
+  background: #2a2a2a;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ffb87c;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+button {
+  background: #2a2a2a;
+  border: 1px solid #ffb87c;
+  color: #ffb87c;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', monospace;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ffb87c;
+  color: #1a1a1a;
+}
+
+button:last-child {
+  margin-right: 0;
+}
+
+@keyframes smokeDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+@media (max-width: 768px) {
+  #control-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 90vw;
+    margin-bottom: 20px;
+  }
+  
+  #canvas {
+    height: 60vh;
+  }
+}
